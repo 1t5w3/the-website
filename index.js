@@ -13,7 +13,6 @@ function gridCellDimensions() {
     return { width: rect.width, height: rect.height };
   }
   
-  // Add padding to each media to maintain grid.
   function adjustMediaPadding() {
     const cell = gridCellDimensions();
   
