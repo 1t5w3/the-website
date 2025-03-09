@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Oskar Wickström" />
+  <title>arshias lounge</title>
+
+  <link rel="stylesheet" href="../styles/main.css">
+  <script src="../pages/BPcounter.js"></script>
+</head>
+
+<body>
+  <table class="header">
+    <tr>
+      <td colspan="2" rowspan="2" class="width-auto">
+        <h1 class="title">welcome</h1>
+        <span class="subtitle">this is just about me</span>
+      </td>
+      <th>Age</th>
+      <td class="width-min">18</td> 
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td class="width-min"><time style="white-space: pre;">2025-02-22</time></td>
+    </tr>
+    <tr>
+      <td><a href="index.html">Home</a></td>
+      <td><a href="projects.html">Projects</a></td>
+      <td><a href="games.html">Games</a></td>
+      <td><a href="contact.html">Contact</a></td>
+    </tr>
+  </table>
+    
+  <p id="demo" style="text-align: center;"></p>
+
+
+  <table>
+    <tr>
+        <td><input type="number" id="startingLevel" name="startingLevel" value="1" placeholder="Your starting level" required ></td>
+        <td><input type="number" id="finalLevel" name="finalLevel" value="200" placeholder="Your desired level" required></td>
+        <td><input type="number" id="XPEarned" name="XPEarned"  placeholder="XP per day" required></td>
+    </tr>
+    
+  </table>
+<div name="days" value=""></div>
+<div name="XPEarnedTF" value=""></div>
+<div class="BPcalculator" id="BPDistance" style="text-align: center;">Distance: </div>
+<div class="BPcalculator" id="BPXPneeded" style="text-align: center;">you need : __ XP</div>
+<div class="BPcalculator" id="BPDaysNeeded" style="text-align: center;">That is : __ XP in __ Days</div>
+<div class="BPcalculator" id="BPWillMakeIt" style="text-align: center;"></div>
+
+</body>
+</html>
+

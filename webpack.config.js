@@ -10,7 +10,8 @@ module.exports = {
     about: "./src/pages/about.js",
     contact: "./src/pages/contact.js",
     games: "./src/pages/games.js",      
-    projects: "./src/pages/projects.js" 
+    projects: "./src/pages/projects.js",
+    BPcounter: "./src/pages/BPcounter.js"
   },
 
   output: {
@@ -49,9 +50,15 @@ module.exports = {
       filename: "projects.html",
       chunks: ["projects"],
     }),
+    new HtmlWebpackPlugin({
+      template: "./src/templates/BPcounter.html",
+      filename: "BPcounter.html",
+      chunks: ["BPcounter"],
+    }),
     new MiniCssExtractPlugin({
       filename: "[name].[contenthash].css",
     }),
+    
   ],
 
   module: {
