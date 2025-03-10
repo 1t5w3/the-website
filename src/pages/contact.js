@@ -123,4 +123,3 @@ function gridCellDimensions() {
   debugToggle.addEventListener("change", onDebugToggle);
   onDebugToggle();
   
-  

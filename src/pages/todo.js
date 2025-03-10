@@ -11,7 +11,6 @@ function gridCellDimensions() {
     return { width: rect.width, height: rect.height };
   }
   
-  // Add padding to each media to maintain grid.
   function adjustMediaPadding() {
     const cell = gridCellDimensions();
   
@@ -113,17 +112,92 @@ function gridCellDimensions() {
       }
     }
   }
-  
-  const debugToggle = document.querySelector(".debug-toggle");
-  function onDebugToggle() {
-    document.body.classList.toggle("debug", debugToggle.checked);
-  }
-  debugToggle.addEventListener("change", onDebugToggle);
-  onDebugToggle();
-  
 
 
-  function togglePopup() {
-    var popup = document.getElementById("myPopup");
-    popup.classList.toggle("show");
+/* the code starts here */
+document.getElementById("newTaskButton").addEventListener("click", togglePopup);
+document.getElementById("TDSubmit").addEventListener("click", submit);
+document.getElementById("Xbutton").addEventListener("click", togglePopup);
+
+let tasksArray = JSON.parse(localStorage.getItem("tasksList")) || [];
+let i = tasksArray.length ? Math.max(...tasksArray.map(task => task.id)) + 1 : 1;
+
+function loadTasks() {
+  tasksArray = JSON.parse(localStorage.getItem("tasksList")) || [];
+  tasksArray.forEach(task => {
+    createTask(task);
+  });
+  if (tasksArray.length > 0) {
+    i = Math.max(...tasksArray.map(task => task.id)) + 1;
+  } else {
+    i = 1;
   }
+}
+
+window.addEventListener("DOMContentLoaded", loadTasks);
+
+function createTask(TDD) {
+  if (!TDD.hasOwnProperty("id")) {
+    TDD.id = i;
+    i++;
+  }
+  const div = document.createElement("div");
+  div.style.border = "var(--border-thickness) solid var(--text-color)";
+  div.style.padding = "calc((var(--line-height) / 2)) calc(1ch - var(--border-thickness)/2 calc((var(--line-height) / 2) - (var(--border-thickness)))";
+  div.style.lineHeight = "var(--line-height)";
+  div.style.verticalAlign = "top";
+  div.style.textAlign = "left";
+  div.style.position = "relative";
+  div.style.top = "calc(var(--line-height) / 2)";
+  div.style.width = "calc(round(down, 100%, 1ch))";
+  div.style.borderCollapse = "collapse";
+  div.style.margin = "0 0 calc(var(--line-height) * 2)";
+  div.style.paddingLeft = "10px";
+  div.id = `taskDiv${TDD.id}`;
+  div.dataset.taskId = TDD.id;
+  const title = document.createElement("p");
+  const date = document.createElement("p");
+  const description = document.createElement("p");
+  title.innerHTML = TDD.title;
+  date.innerHTML = TDD.date;
+  description.innerHTML = TDD.description;
+  document.getElementById("tasks").appendChild(div);
+  div.appendChild(title);
+  div.appendChild(date);
+  div.appendChild(description);
+  const button1 = document.createElement("button");
+  button1.style.position = "absolute";
+  button1.style.right = "0";
+  button1.style.top = "40px";
+  button1.innerHTML = "Done!";
+  button1.id = "doneButton";
+  button1.name = `${TDD.id}`;
+  button1.addEventListener("click", function() {
+    done(div);
+  });
+  div.appendChild(button1);
+}
+
+function done(div) {
+  const taskId = parseInt(div.dataset.taskId, 10);
+  tasksArray = tasksArray.filter(task => task.id !== taskId);
+  localStorage.setItem("tasksList", JSON.stringify(tasksArray));
+  document.getElementById("tasks").removeChild(div);
+}
+
+function submit() {
+  const title = document.getElementById("TDTitle").value;
+  const date = document.getElementById("TDDate").value;
+  const description = document.getElementById("TDDescription").value;
+  console.log(title + " " + date + " " + description);
+  const TDD = { title, date, description };
+  createTask(TDD);
+  tasksArray.push(TDD);
+  localStorage.setItem("tasksList", JSON.stringify(tasksArray));
+  togglePopup();
+}
+
+function togglePopup() {
+  const popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}

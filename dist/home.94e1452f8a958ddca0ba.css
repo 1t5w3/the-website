@@ -1,5 +1,10 @@
-@import url('https://fonts.cdnfonts.com/css/jetbrains-mono-2');
-
+/*!************************************************************************************!*\
+  !*** css ../../../../../node_modules/css-loader/dist/cjs.js!./src/styles/main.css ***!
+  \************************************************************************************/
+@import url(https://fonts.cdnfonts.com/css/jetbrains-mono-2);
+/*!****************************************************************************************!*\
+  !*** css ../../../../../node_modules/css-loader/dist/cjs.js!./src/styles/main.css (1) ***!
+  \****************************************************************************************/
 :root {
   --font-family: "JetBrains Mono", monospace;
   --line-height: 1.20rem;

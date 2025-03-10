@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Oskar Wickström" />
+  <title>arshias lounge</title>
+
+
+
+</head>
+<body>
+  <table class="header">
+    <tr>
+      <td colspan="2" rowspan="2" class="width-auto">
+        <h1 class="title">welcome</h1>
+        <span class="subtitle">this is just about me</span>
+      </td>
+      <th>Age</th>
+      <td class="width-min">18</td> 
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td class="width-min"><time style="white-space: pre;">2025-02-22</time></td>
+    </tr>
+    <tr>
+      <td><a href="index.html">Home</a></td>
+      <td><a href="projects.html">Projects</a></td>
+      <td><a href="games.html">Games</a></td>
+      <td><a href="contact.html">Contact me</a></td>
+    </tr>
+  </table>
+<div style="text-align:right;"><button id="newTaskButton">+ new task</button></div>
+<div id="tasks">
+  <p><b style="font-size: 30px;">TASKS</b> - dont worry the tasks wont get deleted if you leave the site</p>
+</div>
+
+<!-- Popup container -->
+<div id="myPopup" class="popup">
+  <p style="position: absolute; top: -12px; right: 10px; user-select: none;" id="Xbutton">x</p>
+  <input type="text" name="TDTitle" id="TDTitle" placeholder="Title" 
+         onclick="event.stopPropagation()" 
+         style="width: 100%; padding: 8px; border: none; border-radius: 4px;">
+<input type="date" name="TDDate" id="TDDate"  placeholder="Date" 
+         onclick="event.stopPropagation()" 
+         style="margin-top: 10px; width: 100%; padding: 8px; border: none; border-radius: 4px;">
+<textarea name="TDDescription" id="TDDescription" placeholder="Description" style="margin-top: 10px; width: 100%; padding: 8px; border: none; border-radius: 4px;"></textarea>
+<button id="TDSubmit" type="submit" style="margin-top: 10px; width: 100%; padding: 8px; border: none; border-radius: 4px;">Submit</button>
+</div>
+
+
+<style>
+  .trigger {
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+
+  .popup {
+    visibility: hidden;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: rgb(11, 11, 11);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 20px;
+    border: 2px solid white;
+    z-index: 100;
+    -webkit-animation: fadeIn 0.5s;
+    animation: fadeIn 0.5s;
+  }
+
+  .popup.show {
+    visibility: visible;
+  }
+
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+</style>
+</body>
+</html>
+

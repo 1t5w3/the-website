@@ -11,7 +11,8 @@ module.exports = {
     contact: "./src/pages/contact.js",
     games: "./src/pages/games.js",      
     projects: "./src/pages/projects.js",
-    BPcounter: "./src/pages/BPcounter.js"
+    BPcounter: "./src/pages/BPcounter.js",
+    todo: "./src/pages/todo.js"
   },
 
   output: {
@@ -39,6 +40,11 @@ module.exports = {
       template: "./src/templates/contact.html",
       filename: "contact.html",
       chunks: ["contact"],
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/templates/todo.html",
+      filename: "todo.html",
+      chunks: ["todo"],
     }),
     new HtmlWebpackPlugin({
       template: "./src/templates/games.html",

@@ -12,7 +12,7 @@ function gridCellDimensions() {
     return { width: rect.width, height: rect.height };
   }
   
-  // Add padding to each media to maintain grid.
+
   function adjustMediaPadding() {
     const cell = gridCellDimensions();
   
@@ -114,8 +114,9 @@ function gridCellDimensions() {
       }
     }
   }
-  
 
+
+/* the code starts here */
   
   
 
@@ -133,7 +134,6 @@ var countDownDate = new Date("May 2, 2025 10:30:00").getTime();
     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    console.log(document.getElementsByName("days")[0].value)
     document.getElementsByName("days")[0].value = days
     document.getElementById("demo").innerHTML = days + "d " + hours + "h "
     + minutes + "m " + seconds + "s Untill the battle pass ends";
@@ -143,6 +143,7 @@ var countDownDate = new Date("May 2, 2025 10:30:00").getTime();
       document.getElementById("demo").innerHTML = "EXPIRED";
     }
   }, 1000);
+
 var startingLevel = document.getElementsByName("startingLevel")[0].value
 var finalLevel = document.getElementsByName("finalLevel")[0].value
 document.getElementsByName("XPEarnedTF")[0].value = false
@@ -159,12 +160,14 @@ function startingLevelAssigning(){
     checkIfStartIsLowerThanFinal()
     distance()
 }
+
 function finalLevelAssigning(){
     document.getElementsByName("finalLevel")[0].value = checkNumberRange(Number(document.getElementsByName("finalLevel")[0].value))
     finalLevel = Number(document.getElementsByName("finalLevel")[0].value)
     checkIfStartIsLowerThanFinal()
     distance()
 }
+
 function XPEarnedAssigning(){
     var XPEarned = Number(document.getElementsByName("XPEarned")[0].value)
     if(XPEarned === 0) document.getElementsByName("XPEarnedTF")[0].value = false;
@@ -172,6 +175,7 @@ function XPEarnedAssigning(){
     distance()
     
 }
+
 function checkIfStartIsLowerThanFinal(){
     if(startingLevel >= finalLevel){
         finalLevel = Number(startingLevel) + 1
@@ -183,6 +187,7 @@ function checkIfStartIsLowerThanFinal(){
         console.log("new start is: "+ startingLevel +" and new final is: "+finalLevel)
     }
 }
+
 function checkNumberRange(object){
     if(object > 200){
         return object = 200
@@ -207,10 +212,7 @@ document.getElementById('BPXPneeded').innerHTML = "you need : " + (Number(XPneed
 var XPperDay = Number(document.getElementsByName("XPEarned")[0].value)
 var days = Math.floor(XPneeded/XPperDay)
 document.getElementById('BPDaysNeeded').innerHTML = "That is : "+XPperDay.toLocaleString()+" XP in "+days.toLocaleString()+" Days"
-if(days > Number(document.getElementsByName("days")[0].value)){
-    document.getElementById('BPWillMakeIt').innerHTML = "You will Not make it"
-}else{
-    document.getElementById('BPWillMakeIt').innerHTML = "You will make it"
-}
+if(days > Number(document.getElementsByName("days")[0].value)) document.getElementById('BPWillMakeIt').innerHTML = "You will Not make it"
+else document.getElementById('BPWillMakeIt').innerHTML = "You will make it"
 
 }}
